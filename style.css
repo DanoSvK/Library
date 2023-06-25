@@ -11,6 +11,12 @@ body {
   background-color: #9f9f9f;
 }
 
+img {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
 .header {
   height: 120px;
   display: flex;
@@ -201,12 +207,6 @@ input[type="number"]::-webkit-outer-spin-button {
   align-items: center;
 }
 
-.delete-img,
-.edit-img {
-  width: 15px;
-  height: 15px;
-}
-
 .edit-img {
   position: relative;
   right: 0;
@@ -247,11 +247,6 @@ footer p {
   padding-bottom: 5px;
 }
 
-.git-logo {
-  width: 20px;
-  height: 15px;
-  padding-left: 5px;
-}
 @media (min-width: 620px) {
   body {
     font-size: 1.5rem !important;
