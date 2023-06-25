@@ -239,11 +239,20 @@ footer p {
   }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .card p {
+    font-size: 1rem !important;
+  }
+  .title p:first-child {
+    font-size: 1.5rem !important;
+  }
+  .title p:nth-child(2) {
+    font-size: 1rem !important;
   }
   .item {
     min-width: clamp(300px, 50%, 350px);
-    min-height: 450px !important;
+    min-height: 400px !important;
   }
   .input-group {
     flex-direction: column;
