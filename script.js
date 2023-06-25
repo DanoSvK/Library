@@ -98,6 +98,13 @@ form.addEventListener("submit", function (e) {
       }
     }
     if (data) {
+      const book = myLibrary[data.index];
+      book.title = newBook.title;
+      book.author = newBook.author;
+      book.genre = newBook.genre;
+      book.completedPages = newBook.completedPages;
+      book.totalPages = newBook.totalPages;
+
       const cardContainer = document.querySelector(`[data-id="${data.index}"]`);
       const titleElement = cardContainer.querySelector(".title p");
       const authorElement = cardContainer.querySelector(".title .italic");
@@ -114,6 +121,10 @@ form.addEventListener("submit", function (e) {
       checkElement.textContent = newBook.check;
 
       closeModal();
+      // prettier-ignore
+      title.value = author.value = genre.value = totalPages.value = completedPages.value = ""
+      data = undefined;
+      setData();
     } else if (!state) {
       myLibrary.push(newBook);
       closeModal();
@@ -122,6 +133,9 @@ form.addEventListener("submit", function (e) {
       setData();
       errorMessagePages.classList.remove("error-message__pages-active");
       errorMessageTitle.classList.remove("error-message__title-active");
+      // prettier-ignore
+      title.value = author.value = genre.value = totalPages.value = completedPages.value = ""
+
       data = undefined;
     } else if (state) {
       errorMessageTitle.classList.add("error-message__title-active");
@@ -135,10 +149,8 @@ function handleInput() {
   const completed = +completedPages.value;
   const total = +totalPages.value;
   if (completed > total && completed && total) {
-    console.log("Invalid inputs");
     errorMessagePages.classList.add("error-message__pages-active");
   } else {
-    console.log("Inputs are valid");
     errorMessagePages.classList.remove("error-message__pages-active");
   }
 
@@ -257,30 +269,33 @@ const createBook = function (item) {
 };
 
 let data;
-document.querySelector(".grid").addEventListener("click", function (e) {
+const editCard = function (e) {
   const target = e.target.closest(".edit-img");
-  const card = e.target.closest(".card");
-  if (!target) return;
-  const inputs = card.querySelectorAll(".input");
-  for (i = 0; i < inputs.length; i++) {
-    console.log(inputs[i].previousElementSibling);
-    if (inputs[i].previousElementSibling.classList.contains("filled")) {
-      inputs[i].previousElementSibling.classList.remove("filled");
-    } else {
-      inputs[i].previousElementSibling.classList.add("filled");
-    }
-  }
 
+  if (!target) return;
   const index = target.closest(".card").dataset.id;
+
   data = myLibrary[index];
+  console.log(data.title);
   title.value = data.title;
   author.value = data.author;
   genre.value = data.genre;
   completedPages.value = data.completedPages;
   totalPages.value = data.totalPages;
   data.index = index;
+
+  const inputs = document.querySelectorAll(".input");
+  for (i = 0; i < inputs.length; i++) {
+    if (inputs[i].value == "") {
+      inputs[i].previousElementSibling.classList.remove("filled");
+    } else {
+      inputs[i].previousElementSibling.classList.add("filled");
+    }
+  }
+
   openModal();
-});
+};
+document.querySelector(".grid").addEventListener("click", editCard);
 
 // Handle local storage
 const renderCard = function () {

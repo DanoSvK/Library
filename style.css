@@ -34,6 +34,7 @@ body {
   z-index: 20;
   display: none;
   text-align: center;
+  font-size: 1rem;
 }
 
 .error-message__pages-active,
@@ -61,7 +62,7 @@ body {
 
 .item {
   background-color: blanchedalmond;
-  max-width: 200px;
+  max-width: 240px;
   min-height: 260px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   padding: 1rem;
@@ -93,12 +94,14 @@ input {
   outline: 1px solid black;
   border-radius: 2px;
   padding: 4px;
+  max-width: 100%;
 }
 
 .input-group {
   display: flex;
   position: relative;
 }
+
 .card-footer {
   padding-bottom: 10px;
 }
@@ -130,7 +133,15 @@ input[type="number"]::-webkit-outer-spin-button {
   cursor: pointer;
 }
 
-.title {
+.submit-item .title,
+.submit-item .author,
+.submit-item .genre {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+}
+
+.card .title {
   display: flex;
   flex-direction: column;
   height: 50%;
@@ -161,7 +172,13 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 0.8rem;
   word-wrap: break-word;
 }
-
+.pages-container {
+  display: flex;
+  gap: 10px;
+}
+.pages {
+  width: 48%;
+}
 .pages-wrapper {
   display: flex;
   justify-content: space-between;
@@ -214,7 +231,9 @@ input[type="number"]::-webkit-outer-spin-button {
   transform: translateX(50%);
   z-index: 10;
 }
-
+form .title {
+  margin-top: 10px;
+}
 footer {
   display: flex;
   flex-direction: column;
@@ -264,8 +283,4 @@ footer p {
   .input {
     padding: 10px;
   }
-}
-
-input {
-  max-width: 100%;
 }
