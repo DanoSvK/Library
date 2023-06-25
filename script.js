@@ -104,6 +104,7 @@ form.addEventListener("submit", function (e) {
       book.genre = newBook.genre;
       book.completedPages = newBook.completedPages;
       book.totalPages = newBook.totalPages;
+      book.completionCheck = newBook.completionCheck;
 
       const cardContainer = document.querySelector(`[data-id="${data.index}"]`);
       const titleElement = cardContainer.querySelector(".title p");
@@ -118,7 +119,7 @@ form.addEventListener("submit", function (e) {
       authorElement.textContent = newBook.author;
       genreTypeElement.textContent = newBook.genre;
       pagesElement.textContent = `Pages: ${newBook.completedPages}/${newBook.totalPages}`;
-      checkElement.textContent = newBook.check;
+      checkElement.textContent = newBook.completionCheck;
 
       closeModal();
       // prettier-ignore
@@ -276,12 +277,12 @@ const editCard = function (e) {
   const index = target.closest(".card").dataset.id;
 
   data = myLibrary[index];
-  console.log(data.title);
   title.value = data.title;
   author.value = data.author;
   genre.value = data.genre;
   completedPages.value = data.completedPages;
   totalPages.value = data.totalPages;
+  check.textContent = data.completionCheck;
   data.index = index;
 
   const inputs = document.querySelectorAll(".input");
