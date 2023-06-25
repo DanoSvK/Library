@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="overlay"></div>    
+    <header class="header">
+      <h1>Your library</h1>
+    </header>
+    <main>
+      <div class="add-book">
+        <p>+ Add new book</p>
+      </div>    
+      <div class="grid"> 
+       <div class="item submit-item">
+        <form>
+          <div class="title input-group">
+            <label for="title">Title</label>
+            <input class="input" type="text" id="title" name="title" required />
+            <p class="error-message__title">A book with this name already exists in your Library</p>
+          </div>
+          <div class="author input-group">
+            <label for="author">Author</label>
+            <input class="input" type="text" id="author" name="author" required />
+          </div>
+          <div class="genre input-group">
+            <label for="genre">Genre</label>
+            <input class="input" type="text" id="genre" name="genre" required />
+          </div>
+          <div class="pages input-group">
+            <label for="completedPages">Completed pages</label>
+            <input class="pagesInput input" type="number" id="completedPages" name="pages" required />
+            <p class="error-message__pages">Completed pages should be less than Total pages</p>
+          </div>
+          <div class="pages input-group">
+            <label for="totalPages">Total pages</label>
+            <input class="pagesInput input" type="number" id="totalPages" name="pages" required />
+          </div>
+          <div>
+            <p class="check"></p>
+          </div>
+          <button class="submit">Submit</button>
+        </form>
+       </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>Created by Danči</p>
+      <p>Copyright © <script>
+        document.write(new Date().getFullYear())
+      </script> DanoSvK <a href="https://github.com/DanoSvK" target="_blank"><img class="git-logo" src="./github-mark.svg" alt="GitHub logo"></a></p>
+    </footer>
+  </body>
+</html>

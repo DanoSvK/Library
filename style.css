@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  width: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background-color: #9f9f9f;
+}
+
+.header {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9d9d9;
+}
+
+.main__btn-add {
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-message__pages,
+.error-message__title {
+  color: red;
+  z-index: 20;
+  display: none;
+  text-align: center;
+}
+
+.error-message__pages-active,
+.error-message__title-active {
+  display: block;
+}
+
+.add-book {
+  display: flex;
+  justify-content: center;
+}
+
+.add-book p {
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  gap: 1rem;
+  padding: 2rem 2rem;
+  justify-items: center;
+}
+
+.item {
+  background-color: blanchedalmond;
+  max-width: 200px;
+  min-height: 260px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  padding-top: 1.5625rem;
+}
+
+.card {
+  width: clamp(200px, 50%, 250px);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.8rem;
+  transform: translate(4px, 4px);
+  transition: transform 0.25s;
+}
+
+input {
+  background: transparent;
+  border: none;
+  outline: 1px solid black;
+  border-radius: 2px;
+  padding: 4px;
+}
+
+.input-group {
+  display: flex;
+  position: relative;
+}
+.card-footer {
+  padding-bottom: 10px;
+}
+.input-group:focus-within label {
+  transform: translate(0, -20px) !important;
+  transition: transform 0.25s;
+}
+
+.filled {
+  transform: translate(0, -20px) !important;
+  transition: transform 0.25s;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.check {
+  margin: 0;
+}
+
+.submit {
+  background: transparent;
+  border: 1px solid black;
+  padding: 5px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.title p:first-child {
+  font-size: 0.8rem;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.title p:nth-child(2) {
+  font-size: 0.8rem;
+  word-wrap: break-word;
+}
+
+.genre p:first-child {
+  font-size: 0.8rem;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.genre p:nth-child(2) {
+  font-size: 0.8rem;
+  word-wrap: break-word;
+}
+
+.pages-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pages {
+  font-size: 0.8rem;
+  display: inline;
+}
+
+.read-check {
+  display: inline;
+  font-size: 0.8rem;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.delete-img,
+.edit-img {
+  width: 15px;
+  height: 15px;
+}
+
+.edit-img {
+  position: relative;
+  right: 0;
+}
+
+.overlay-active {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+}
+
+.submit-item {
+  display: none;
+}
+
+.submit-item-active {
+  display: block;
+  position: fixed;
+  top: 25%;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 10;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.git-logo {
+  width: 20px;
+  height: 15px;
+  padding-left: 5px;
+}
+@media (min-width: 620px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
